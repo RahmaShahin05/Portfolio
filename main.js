@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    //  Dark & Light Mode Code (جزء التبديل المضاف)
+    //  Dark & Light Mode Code
     // ==========================================
     const themeToggleBtn = document.getElementById('theme-toggle');
     
@@ -62,21 +62,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Navbar Scroll Effect (تم تعديله ليتوافق مع الـ Light Mode)
+    // ==========================================
+    // Navbar Scroll Effect (تعديل آمن 100% بدون ألوان ثابتة)
+    // ==========================================
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.style.background = 'var(--dark-lighter)'; // هيتحول تلقائي للأبيض في اللايت والرمادي في الدارك
+            nav.style.background = 'var(--dark-lighter)'; // بيتحول تلقائي حسب الثيم
             nav.style.boxShadow = 'var(--shadow)';
+            nav.style.padding = '15px 8%'; // تصغير ناعم للهيدر أثناء النزول
         } else {
-            // الرجوع للخلفية الشفافة الأصلية
-            let theme = document.documentElement.getAttribute('data-theme');
-            if (theme === 'light') {
-                nav.style.background = 'rgba(248, 250, 252, 0.85)';
-            } else {
-                nav.style.background = 'rgba(15, 23, 42, 0.85)';
-            }
+            nav.style.background = 'var(--card-bg)'; // بيرجع للخلفية الشفافة الأصلية المتوافقة مع الثيمين
             nav.style.boxShadow = 'none';
+            nav.style.padding = '20px 8%';
         }
     });
 
