@@ -1,149 +1,54 @@
-// ===============================
-// AOS Animation
-// ===============================
-
+// Initialize AOS Animation
 document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
 
-```
-AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links li a');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Close menu when clicking a link
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Navbar Scroll Effect
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.style.background = 'rgba(15, 23, 42, 0.98)';
+            nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        } else {
+            nav.style.background = 'rgba(15, 23, 42, 0.9)';
+            nav.style.boxShadow = 'none';
+        }
+    });
+
+        // Smooth scroll for Safari/older browsers (optional backup)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
 
-// ===============================
-// ELEMENTS
-// ===============================
-
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const links = document.querySelectorAll('.nav-links li a');
-const nav = document.querySelector('nav');
-
-// ===============================
-// MOBILE MENU
-// ===============================
-
-if (menuToggle) {
-
-    menuToggle.addEventListener('click', () => {
-
-        menuToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-}
-
-// Close menu when clicking links
-
-links.forEach(link => {
-
-    link.addEventListener('click', () => {
-
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('active');
-    });
-});
-
-// Close menu when clicking outside
-
-document.addEventListener('click', (e) => {
-
-    const isInside =
-        navLinks.contains(e.target) ||
-        menuToggle.contains(e.target);
-
-    if (!isInside) {
-
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('active');
-    }
-});
-
-// ===============================
-// DARK & LIGHT MODE
-// ===============================
-
-const themeToggleBtn = document.getElementById('theme-toggle');
-
-if (themeToggleBtn) {
-
-    const themeIcon = themeToggleBtn.querySelector('i');
-
-    const currentTheme = localStorage.getItem('theme');
-
-    if (currentTheme === 'light') {
-
-        document.documentElement.setAttribute(
-            'data-theme',
-            'light'
-        );
-
-        themeIcon.classList.replace(
-            'fa-moon',
-            'fa-sun'
-        );
-    }
-
-    themeToggleBtn.addEventListener('click', () => {
-
-        const isLight =
-            document.documentElement.getAttribute('data-theme')
-            === 'light';
-
-        if (isLight) {
-
-            document.documentElement.removeAttribute('data-theme');
-
-            localStorage.removeItem('theme');
-
-            themeIcon.classList.replace(
-                'fa-sun',
-                'fa-moon'
-            );
-
-        } else {
-
-            document.documentElement.setAttribute(
-                'data-theme',
-                'light'
-            );
-
-            localStorage.setItem(
-                'theme',
-                'light'
-            );
-
-            themeIcon.classList.replace(
-                'fa-moon',
-                'fa-sun'
-            );
-        }
-    });
-}
-
-// ===============================
-// NAVBAR SCROLL EFFECT
-// ===============================
-
-let ticking = false;
-
-window.addEventListener('scroll', () => {
-
-    if (!ticking) {
-
-        window.requestAnimationFrame(() => {
-
-            nav.classList.toggle(
-                'scrolled',
-                window.scrollY > 50
-            );
-
-            ticking = false;
-        });
-
-        ticking = true;
-    }
-});
-```
-
-});
