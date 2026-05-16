@@ -21,24 +21,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close menu when clicking a link
     links.forEach(link => {
         link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+            if (menuToggle) menuToggle.classList.remove('active');
+            if (navLinks) navLinks.classList.remove('active');
         });
     });
 
-    // Navbar Scroll Effect
+    // ==========================================
+    //  Dark & Light Mode Code (جزء التبديل المضاف)
+    // ==========================================
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    
+    if (themeToggleBtn) {
+        const themeIcon = themeToggleBtn.querySelector('i');
+
+        // 1. الفحص عند تحميل الصفحة: هل فيه ثيم متسجل في المتصفح؟
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            
+            // لو الثيم لايت، نغير الأيقونة لشمس
+            if (currentTheme === 'light' && themeIcon) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        // 2. حدث الضغط على الزرار للتبديل
+        themeToggleBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            
+            if (theme === 'light') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+                if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+    }
+
+
+    // Navbar Scroll Effect (تم تعديله ليتوافق مع الـ Light Mode)
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.style.background = 'rgba(15, 23, 42, 0.98)';
-            nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            nav.style.background = 'var(--dark-lighter)'; // هيتحول تلقائي للأبيض في اللايت والرمادي في الدارك
+            nav.style.boxShadow = 'var(--shadow)';
         } else {
-            nav.style.background = 'rgba(15, 23, 42, 0.9)';
+            // الرجوع للخلفية الشفافة الأصلية
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'light') {
+                nav.style.background = 'rgba(248, 250, 252, 0.85)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.85)';
+            }
             nav.style.boxShadow = 'none';
         }
     });
 
-        // Smooth scroll for Safari/older browsers (optional backup)
+    // Smooth scroll for Safari/older browsers (optional backup)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
