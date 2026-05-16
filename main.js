@@ -1,46 +1,149 @@
-/* ================= main.js ================= */
+// ===============================
+// AOS Animation
+// ===============================
 
-// 1. تعريف العناصر (Selectors)
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-const menuToggle = document.getElementById('mobile-menu');
+document.addEventListener('DOMContentLoaded', () => {
+
+```
+AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+});
+
+// ===============================
+// ELEMENTS
+// ===============================
+
+const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const links = document.querySelectorAll('.nav-links li a');
+const nav = document.querySelector('nav');
 
-// 2. وظيفة تبديل الوضع (Dark/Light Mode)
-themeToggle.addEventListener('click', () => {
-    // التحقق مما إذا كان الوضع الحالي هو الـ Light
-    if (body.getAttribute('data-theme') === 'light') {
-        body.removeAttribute('data-theme');
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        // اختياري: حفظ الإعداد في المتصفح
-        localStorage.setItem('theme', 'dark');
-    } else {
-        body.setAttribute('data-theme', 'light');
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        localStorage.setItem('theme', 'light');
-    }
-});
+// ===============================
+// MOBILE MENU
+// ===============================
 
-// 3. وظيفة القائمة للموبايل (Mobile Menu Toggle)
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    menuToggle.classList.toggle('is-active'); // لإضافة تأثير حركة للزر (الشرطات الثلاث)
-});
+if (menuToggle) {
 
-// 4. غلق القائمة تلقائياً عند الضغط على أي رابط (للموبايل)
+    menuToggle.addEventListener('click', () => {
+
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+}
+
+// Close menu when clicking links
+
 links.forEach(link => {
+
     link.addEventListener('click', () => {
+
         navLinks.classList.remove('active');
-        menuToggle.classList.remove('is-active');
+        menuToggle.classList.remove('active');
     });
 });
 
-// 5. تفعيل إعدادات المستخدم المحفوظة عند تحميل الصفحة
-window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.setAttribute('data-theme', 'light');
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+// Close menu when clicking outside
+
+document.addEventListener('click', (e) => {
+
+    const isInside =
+        navLinks.contains(e.target) ||
+        menuToggle.contains(e.target);
+
+    if (!isInside) {
+
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
     }
+});
+
+// ===============================
+// DARK & LIGHT MODE
+// ===============================
+
+const themeToggleBtn = document.getElementById('theme-toggle');
+
+if (themeToggleBtn) {
+
+    const themeIcon = themeToggleBtn.querySelector('i');
+
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'light') {
+
+        document.documentElement.setAttribute(
+            'data-theme',
+            'light'
+        );
+
+        themeIcon.classList.replace(
+            'fa-moon',
+            'fa-sun'
+        );
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+
+        const isLight =
+            document.documentElement.getAttribute('data-theme')
+            === 'light';
+
+        if (isLight) {
+
+            document.documentElement.removeAttribute('data-theme');
+
+            localStorage.removeItem('theme');
+
+            themeIcon.classList.replace(
+                'fa-sun',
+                'fa-moon'
+            );
+
+        } else {
+
+            document.documentElement.setAttribute(
+                'data-theme',
+                'light'
+            );
+
+            localStorage.setItem(
+                'theme',
+                'light'
+            );
+
+            themeIcon.classList.replace(
+                'fa-moon',
+                'fa-sun'
+            );
+        }
+    });
+}
+
+// ===============================
+// NAVBAR SCROLL EFFECT
+// ===============================
+
+let ticking = false;
+
+window.addEventListener('scroll', () => {
+
+    if (!ticking) {
+
+        window.requestAnimationFrame(() => {
+
+            nav.classList.toggle(
+                'scrolled',
+                window.scrollY > 50
+            );
+
+            ticking = false;
+        });
+
+        ticking = true;
+    }
+});
+```
+
 });
