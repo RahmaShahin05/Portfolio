@@ -1,37 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfolio of Rahma Shahin, a Junior Data Analyst specializing in Python, SQL, and Data Visualization.">
+    <meta name="description" content="Portfolio of Rahma Shahin, a Junior Data Analyst.">
     <title>Rahma Shahin | Data Analyst Portfolio</title>
     <link rel="icon" type="image/png" href="profile.jpeg">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- AOS Animation -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-
-    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- ================= NAVBAR ================= -->
     <nav>
         <a href="index.html" class="logo">Rahma Shahin</a>
-        
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
@@ -39,31 +22,23 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-
-        <!-- زر التبديل الموحد -->
         <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
             <i class="fas fa-moon"></i>
         </button>
-
         <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </div>
     </nav>
 
-    <!-- ================= HERO ================= -->
     <header class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="profile-img-container" data-aos="zoom-in">
                 <img src="profile.jpeg" alt="Rahma Shahin">
             </div>
-
             <div data-aos="fade-up">
                 <h1>Hello, I'm <span>Rahma Shahin</span></h1>
-                <p>Data Analyst | Data Cleaning, Visualization & Business Insights | Turning Data into Stories</p>
-
+                <p>Data Analyst | Data Cleaning, Visualization & Business Insights</p>
                 <div class="hero-btns">
                     <a href="#contact" class="btn btn-primary">Hire Me</a>
                     <a href="https://github.com/RahmaShahin05" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
@@ -74,223 +49,8 @@
         </div>
     </header>
 
-    <!-- ================= ABOUT ================= -->
-    <section id="about" class="container">
-        <h2 class="section-title" data-aos="fade-up">About Me</h2>
-
-        <div class="about-content">
-            <div class="about-text" data-aos="fade-right">
-                <h3>Who am I?</h3>
-                <p>
-                    I’ve always been curious about the story behind numbers — how data can explain customer behavior, business performance, and even predict better decisions. That curiosity is what led me to start my journey in Data Analysis.
-                </p>
-                <p>
-                    Through my technical training at the National Telecommunication Institute (NTI), I gained hands-on experience working with tools like Power BI, Tableau, Excel, and Python to transform raw data into clear insights and interactive dashboards.
-                </p>
-                <p>
-                    What excites me most about data analytics is not just building charts or reports, but helping businesses truly understand what their data is trying to say — where opportunities exist, what challenges need attention, and how better decisions can be made with confidence.
-                </p>
-                <p>
-                    I’m continuously improving my analytical and problem-solving skills to create data-driven solutions that are practical, impactful, and easy to understand.
-                </p>
-                <p>
-                    My goal is to turn data into meaningful stories that help businesses grow smarter and make stronger decisions.
-                </p>
-            </div>
-
-            <div class="skills-section" data-aos="fade-left">
-                <h3>My Skills</h3>
-                <div class="skills-container">
-                    <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-                    <span class="skill-tag"><i class="fas fa-database"></i> SQL (MySQL)</span>
-                    <span class="skill-tag"><i class="fas fa-chart-bar"></i> Power BI</span>
-                    <span class="skill-tag"><i class="fas fa-table"></i> Tableau</span>
-                    <span class="skill-tag"><i class="fas fa-file-excel"></i> Excel</span>
-                    <span class="skill-tag"><i class="fas fa-broom"></i> Data Cleaning</span>
-                    <span class="skill-tag"><i class="fab fa-github"></i> GitHub</span>
-                    <span class="skill-tag"><i class="fas fa-brain"></i> Problem Solving</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= SERVICES ================= -->
-    <section id="services" class="dark-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Offered Services</h2>
-
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up">
-                    <div class="icon-box">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Data Visualization</h3>
-                    <p>Building interactive dashboards in Power BI and Tableau to visualize trends and enable data-driven decisions.</p>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon-box">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Data Cleaning</h3>
-                    <p>Transforming raw data into clean, usable formats using Python and SQL to ensure high accuracy.</p>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon-box">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Predictive Analysis</h3>
-                    <p>Developing predictive models to forecast trends and support strategic planning.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= EDUCATION & EXPERIENCE ================= -->
-    <section id="education" class="container">
-        <div class="resume-grid">
-            <div class="education-col" data-aos="fade-right">
-                <h2 class="section-title left-align"><i class="fas fa-graduation-cap"></i> Education</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="date">2021 - 2025</span>
-                        <h3>B.Sc. in Management Technology & Info Systems</h3>
-                        <p>Port Said University</p>
-                        <small>Major in Information Technology Management</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="experience-col" data-aos="fade-left">
-                <h2 class="section-title left-align"><i class="fas fa-briefcase"></i> Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="date">Aug 2025</span>
-                        <h3>Freelance Data Analysis</h3>
-                        <p>Freelance Yard</p>
-                        <ul>
-                            <li>Worked on freelance data-focused projects involving data organization, reporting, and business insights for retail, cafés, and bakeries.</li>
-                            <li>Analyzed sales and operational data to uncover trends.</li>
-                            <li>Organized customer-related data for better tracking.</li>
-                            <li>Supported reporting and performance tracking for stakeholders.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= PROJECTS ================= -->
-    <section id="projects" class="dark-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
-
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card" data-aos="zoom-in">
-                    <div class="project-content">
-                        <h3>Sales Performance Dashboard</h3>
-                        <p>
-                            Built an end-to-end Power BI dashboard analyzing sales, profit, product performance,
-                            and customer behavior using the Global Superstore dataset. Focused on identifying
-                            profitability drivers, discount impact, and actionable business insights.
-                        </p>
-                        <div class="project-tools">
-                            <span>Power BI</span>
-                            <span>DAX</span>
-                            <span>Data Modeling</span>
-                        </div>
-                        <a href="https://github.com/RahmaShahin05/PowerBI-Sales-Performance-Dashboard"
-                           target="_blank" rel="noopener noreferrer" class="project-link">
-                           View Project
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" data-aos="zoom-in">
-                    <div class="project-content">
-                        <h3>Telecom Customer Analysis</h3>
-                        <p>Conducted Exploratory Data Analysis (EDA) on customer datasets to identify churn patterns. Built dashboards to visualize trends.</p>
-                        <div class="project-tools">
-                            <span>Python</span>
-                            <span>SQL</span>
-                            <span>Power BI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="project-content">
-                        <h3>Sales Forecasting</h3>
-                        <p>Developed predictive models to forecast monthly sales. Improved forecast accuracy by 15% to support strategic planning.</p>
-                        <div class="project-tools">
-                            <span>Python</span>
-                            <span>Excel</span>
-                            <span>Modeling</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="project-content">
-                        <h3>Brew Haven Café Analysis</h3>
-                        <p>Analyzed transaction data to identify best-selling products and revenue trends. Built dashboards for seasonal demand.</p>
-                        <div class="project-tools">
-                            <span>Excel</span>
-                            <span>Pivot Tables</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="project-content">
-                        <h3>Golden Crust Bakery Dashboard</h3>
-                        <p>Analyzed marketing performance and revenue trends across multiple channels. Built dashboards and KPIs to optimize ad spending and improve ROI.</p>
-                        <div class="project-tools">
-                            <span>Google Sheets</span>
-                            <span>Dashboards</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="project-content">
-                        <h3>Style Avenue Boutique</h3>
-                        <p>Segmented customers based on loyalty usage and purchase behavior, compared spending trends, and supported retention strategies.</p>
-                        <div class="project-tools">
-                            <span>Excel</span>
-                            <span>Pivot Tables</span>
-                            <span>Data Visualization</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7 -->
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="project-content">
-                        <h3>Customer Insights Dashboard</h3>
-                        <p>Cleaned and analyzed customer datasets, identified key trends, and created dashboards to support decision-making.</p>
-                        <div class="project-tools">
-                            <span>Power BI</span>
-                            <span>Excel</span>
-                            <span>Data Cleaning</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= TESTIMONIALS ================= -->
     <section id="testimonials" class="container">
         <h2 class="section-title" data-aos="fade-up">Testimonials</h2>
-
         <div class="testimonials-grid">
             <div class="testimonial-card" data-aos="fade-up">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
@@ -300,7 +60,6 @@
                     <span>National Telecommunication Institute (NTI)</span>
                 </div>
             </div>
-
             <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                 <p>"An excellent team leader who kept the Reading Club organized and motivated. She always delivers quality work."</p>
@@ -312,49 +71,8 @@
         </div>
     </section>
 
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="container">
-        <div class="contact-wrapper" data-aos="zoom-in">
-            <h2>Let’s Work Together</h2>
-            <p>I am available for freelance work and full-time opportunities.</p>
-
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>rahma.elsayed.shahin@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Damietta, Egypt</span>
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/rahma-elsayed-shahin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/RahmaShahin05" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:rahma.elsayed.shahin@gmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-
-            <a href="Rahma Elsayed Shahin.cv.pdf" class="btn btn-primary" download>
-                <i class="fas fa-download"></i> Download CV
-            </a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Rahma Shahin. All Rights Reserved.</p>
-    </footer>
-
-    <!-- AOS Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Main JS -->
     <script src="main.js"></script>
+    <script>AOS.init();</script>
 </body>
-
 </html>
